@@ -1,16 +1,25 @@
+import 'package:app_flutter/gradient_back.dart';
+import 'package:app_flutter/header_app_bar.dart';
+import 'package:app_flutter/review_list.dart';
 import 'package:flutter/material.dart';
+import 'description_place.dart';
 
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
+
+  String description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+  String name = "Japon";
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
+        fontFamily: 'FontFamily',
         // This is the theme of your application.
         //
         // Try running your application with "flutter run". You'll see the
@@ -24,35 +33,19 @@ class MyApp extends StatelessWidget {
       ),
       //home: MyHomePage(title: 'Flutter Demo Home Page'),
       home: Scaffold(
-        appBar: AppBar(title: Text("One Piece"),
-            centerTitle: true,
-            backgroundColor: Colors.orange),
-        body: Container(
-          decoration: BoxDecoration(
-          image: DecorationImage(image: AssetImage('assets/luffy.png'), fit: BoxFit.fitHeight),
-          ),
+        body: Stack(
+          children: [
+            ListView(
+              children: [
 
-          child: Center(
-
-            child: Container(
-            height: 40.0,
-            color: Color.fromRGBO(0, 0, 0, .6),
-                child: Center(
-
-                  child: Text(
-                    'Luffy',
-                    style: TextStyle(
-                    color: Colors.deepOrange,
-                    fontSize: 32
-                    ),
-                  ),
-                )
-          ),
-        ),
-        ),
-
-
-    )
+                DescriptionPlace(name,4,description),
+                ReviewList()
+              ],
+            ),
+            HeaderAppBar()
+            ],
+            ),
+      )
     );
   }
 }
