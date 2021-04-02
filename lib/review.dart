@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 class Review extends StatelessWidget{
 
-  String pathImage, name, details, comment ;
+  String pathImage, pathFlagImage,name, details, comment ;
 
-  Review(this.pathImage, this.name, this.details, this.comment);
+  Review(this.pathImage, this.pathFlagImage, this.name, this.details, this.comment);
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +12,7 @@ class Review extends StatelessWidget{
     final userComment = Container(
       margin: EdgeInsets.only(left: 20.0),
       child: Text(comment, textAlign: TextAlign.left, style: TextStyle(
-          fontSize: 12.0, fontWeight: FontWeight.w900
+          fontSize: 12.0
       ),),
     );
 
@@ -20,28 +20,31 @@ class Review extends StatelessWidget{
     final userInfoDetails = Container(
       margin: EdgeInsets.only(left: 20.0),
       child: Text(details, textAlign: TextAlign.left, style: TextStyle(
-       fontSize: 12.0
+       fontSize: 13.0, color: Colors.black
       ),),
     );
 
     final userName = Container(
       margin: EdgeInsets.only(left: 20.0),
       child: Text(name, textAlign: TextAlign.left, style: TextStyle(
-          fontSize: 17.0, color: Colors.black12
+          fontSize: 17.0, color: Colors.black, fontWeight: FontWeight.bold,
       ),),
+
     );
 
     final userDetail = Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: [userName, userInfoDetails, userComment],
+      children: [
+        userName ,
+        Divider(),
+        userInfoDetails,
+        Divider(),
+        userComment],
     );
     // Se usa el contenedor para hacer el efecto del borde redondo
     final photo = Container(
-      margin: EdgeInsets.only(
-        top: 20.0,left: 20.0
-      ),
-      width: 80.0, height: 80.0,
-
+      margin: const EdgeInsets.only(left: 4.0, right: 4.0),
+      width: 100.0, height: 100.0,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         image: DecorationImage(image: AssetImage(pathImage),
@@ -51,9 +54,21 @@ class Review extends StatelessWidget{
     );
 
     return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        photo,
-        userDetail
+        Expanded(child: photo, flex: 2),
+        Expanded(child: userDetail, flex: 6),
+        Expanded(flex: 2,child:
+        Container(
+          alignment: Alignment.bottomRight,
+          width: 60.0, height: 60.0,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            image: DecorationImage(
+                image: AssetImage(pathFlagImage),
+                fit: BoxFit.cover)
+          ),
+        )),
       ],
     )
     ;

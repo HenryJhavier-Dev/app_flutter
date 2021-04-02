@@ -35,14 +35,13 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         body: Stack(
           children: [
+            HeaderAppBar(),
             ListView(
               children: [
-
-                DescriptionPlace(name,4,description),
+                //DescriptionPlace(name,4,description),
                 ReviewList()
               ],
             ),
-            HeaderAppBar()
             ],
             ),
       )
