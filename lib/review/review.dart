@@ -20,14 +20,14 @@ class Review extends StatelessWidget{
     final userInfoDetails = Container(
       margin: EdgeInsets.only(left: 20.0),
       child: Text(details, textAlign: TextAlign.left, style: TextStyle(
-       fontSize: 12.0
+       fontSize: 12.0,color: Colors.black38
       ),),
     );
 
     final userName = Container(
       margin: EdgeInsets.only(left: 20.0),
       child: Text(name, textAlign: TextAlign.left, style: TextStyle(
-          fontSize: 17.0, color: Colors.black12
+          fontSize: 17.0, color: Colors.black,
       ),),
     );
 
@@ -51,9 +51,10 @@ class Review extends StatelessWidget{
     );
 
     return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        photo,
-        userDetail
+        Expanded(child: photo, flex: 2),
+        Expanded(child: userDetail, flex: 6)
       ],
     )
     ;

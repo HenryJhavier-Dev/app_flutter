@@ -1,8 +1,8 @@
-import 'package:app_flutter/review.dart';
-import 'package:app_flutter/review_list.dart';
+import 'package:app_flutter/review/review.dart';
+import 'package:app_flutter/review/review_list.dart';
 import 'package:flutter/material.dart';
 
-import 'button_orange.dart';
+import 'common/button_orange.dart';
 
 class DescriptionPlace extends StatelessWidget{
   String namePlace, descriptionPlace;
@@ -38,7 +38,7 @@ class DescriptionPlace extends StatelessWidget{
             textAlign: TextAlign.left,
           ),
         ),
-          Row(children: [wStar(true),wStar(true),wStar(false)]),
+          Row(children: [wStar(true),wStar(true),wStar(true),wStar(true)]),
         ],
       );
 
@@ -46,8 +46,7 @@ class DescriptionPlace extends StatelessWidget{
       crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           titleStars,
-          description,
-          ButtonOrange("Botón")]);
+          description]);
   }
 
 }

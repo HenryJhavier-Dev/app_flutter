@@ -1,7 +1,8 @@
-import 'package:app_flutter/gradient_back.dart';
+import 'package:app_flutter/common/gradient_back.dart';
 import 'package:app_flutter/header_app_bar.dart';
-import 'package:app_flutter/review_list.dart';
+import 'package:app_flutter/review/review_list.dart';
 import 'package:flutter/material.dart';
+import 'dashboard.dart';
 import 'description_place.dart';
 
 void main() {
@@ -10,8 +11,6 @@ void main() {
 
 class MyApp extends StatelessWidget {
 
-  String description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
-  String name = "Japon";
 
   // This widget is the root of your application.
   @override
@@ -32,20 +31,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.red,
       ),
       //home: MyHomePage(title: 'Flutter Demo Home Page'),
-      home: Scaffold(
-        body: Stack(
-          children: [
-            ListView(
-              children: [
-
-                DescriptionPlace(name,4,description),
-                ReviewList()
-              ],
-            ),
-            HeaderAppBar()
-            ],
-            ),
-      )
+      home: Dashboard()
     );
   }
 }
